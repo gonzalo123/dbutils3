@@ -1,5 +1,5 @@
 import pytest
-from dbutils3.dbutils import get_conn, Db
+from dbutils import get_conn, Db
 import os
 
 DB_NAME = os.getenv('POSTGRES_DB')

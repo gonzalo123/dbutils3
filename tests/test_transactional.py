@@ -1,5 +1,5 @@
 import psycopg
-from dbutils3.dbutils import transactional, get_cursor, Db, transactional_cursor
+from dbutils import transactional, get_cursor, Db, transactional_cursor
 from tests.sql import SQL_COUNT
 
 

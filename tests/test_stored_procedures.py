@@ -1,4 +1,4 @@
-from dbutils3.dbutils import Db
+from dbutils.dbutils import Db
 
 
 def test_call_stored_procedure_fetch_one(cursor):
