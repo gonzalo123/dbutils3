@@ -1,0 +1,9 @@
+exceptiongroup==1.1.2
+iniconfig==2.0.0
+packaging==23.1
+pluggy==1.2.0
+psycopg==3.1.10
+pytest==7.4.0
+pytest-env==0.8.2
+tomli==2.0.1
+typing_extensions==4.7.1
