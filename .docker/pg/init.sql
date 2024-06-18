@@ -12,4 +12,14 @@ BEGIN
 
 END;
 $$
-    LANGUAGE plpgsql;
+LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION hello2(name varchar(100), OUT name2 varchar(100))
+    RETURNS RECORD AS
+$$
+BEGIN
+    name2 := 'Hello ' || name;
+    return;
+END;
+$$
+LANGUAGE plpgsql;

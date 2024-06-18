@@ -66,15 +66,17 @@ def fetch_one(cursor, sql, where=None):
         return None
 
 
-def _call_proc(cursor, function, params=None):
+def _call_proc(cursor, function, params=None, out=False):
     params = {} if params is None else params
     placeholders = ", ".join(['%s' for i in range(0, len(params.keys()))])
-    cursor.execute(f"SELECT {function}({placeholders})", tuple(params.values()))
+    select = "SELECT * FROM" if out is True else "SELECT"
+
+    cursor.execute(f"{select} {function}({placeholders})", tuple(params.values()))
     # cursor.callproc(function, params)
 
 
-def sp_fetch_all(cursor, function, params=None):
-    _call_proc(cursor, function, params)
+def sp_fetch_all(cursor, function, params=None, out=False):
+    _call_proc(cursor, function, params, out)
 
     return cursor.fetchall()
 
@@ -263,8 +265,8 @@ class Db:
     def sp_fetch_one(self, function, params=None):
         return sp_fetch_one(self.cursor, function, params)
 
-    def sp_fetch_all(self, function, params=None):
-        return sp_fetch_all(self.cursor, function, params)
+    def sp_fetch_all(self, function, params=None, *, out=False):
+        return sp_fetch_all(self.cursor, function, params, out)
 
     def fetch_one(self, sql, where=None):
         return fetch_one(self.cursor, sql, where)

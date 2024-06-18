@@ -5,7 +5,7 @@ with open("README_DBUTILS.md", "r") as fh:
 
 setup_args = dict(
     name="dbutils3-gonzalo123",
-    version="3.0.1",
+    version="3.0.2",
     author="Gonzalo Ayuso",
     author_email="gonzalo123@gmail.com",
     description="psycopg3 db utils",
